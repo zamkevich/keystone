@@ -74,10 +74,11 @@
     "slate-react": "^0.22.4",
     "unsplash-js": "^6.0.0"
   },
-  "field-types": {
+  "preconstruct": {
     "entrypoints": [
-      ".",
-      "Controller"
+      "index.js",
+      "Controller.js",
+      "types/*/views/{Cell,Controller,Field,Filter}.js"
     ]
   }
 }

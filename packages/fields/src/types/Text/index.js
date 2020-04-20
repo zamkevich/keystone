@@ -1,13 +1,14 @@
 import { Text, MongoTextInterface, KnexTextInterface } from './Implementation';
-import { importView } from '@keystonejs/build-field-types';
+import path from 'path';
+import { pkgPath } from '../../pkg-path';
 
 export default {
   type: 'Text',
   implementation: Text,
   views: {
-    Controller: importView('./views/Controller'),
-    Field: importView('./views/Field'),
-    Filter: importView('./views/Filter'),
+    Controller: path.join(pkgPath, 'types', 'Text', 'views', 'Controller'),
+    Field: path.join(pkgPath, 'types', 'Text', 'views', 'Field'),
+    Filter: path.join(pkgPath, 'types', 'Text', 'views', 'Filter'),
   },
   adapters: {
     mongoose: MongoTextInterface,
