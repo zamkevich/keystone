@@ -452,9 +452,9 @@ module.exports = class Keystone {
    * @return Promise<null>
    */
   connect() {
-    const { adapters, name } = this;
+    const { adapters } = this;
     const rels = this._consolidateRelationships();
-    return resolveAllKeys(mapKeys(adapters, adapter => adapter.connect({ name, rels }))).then(
+    return resolveAllKeys(mapKeys(adapters, adapter => adapter.connect({ rels }))).then(
       () => {
         if (this.eventHandlers.onConnect) {
           return this.eventHandlers.onConnect(this);
