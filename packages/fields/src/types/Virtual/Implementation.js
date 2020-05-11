@@ -6,17 +6,28 @@ import { parseFieldAccess } from '@keystonejs/access-control';
 export class Virtual extends Implementation {
   constructor(
     path,
-    { resolver, graphQLReturnType = 'String', graphQLReturnFragment = '', extendGraphQLTypes = [] }
+    {
+      resolver,
+      graphQLReturnType = 'String',
+      graphQLReturnFragment = '',
+      extendGraphQLTypes = [],
+      param,
+    }
   ) {
     super(...arguments);
     this.resolver = resolver;
+    this.param = param;
     this.graphQLReturnType = graphQLReturnType;
     this.graphQLReturnFragment = graphQLReturnFragment;
     this.extendGraphQLTypes = extendGraphQLTypes;
   }
 
   gqlOutputFields() {
-    return [`${this.path}: ${this.graphQLReturnType}`];
+    if (this.param) {
+      return [`${this.path}(${this.param}): ${this.graphQLReturnType}`];
+    } else {
+      return [`${this.path}: ${this.graphQLReturnType}`];
+    }
   }
   getGqlAuxTypes() {
     return this.extendGraphQLTypes;
