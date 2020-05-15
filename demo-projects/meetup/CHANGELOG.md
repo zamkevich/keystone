@@ -1,5 +1,14 @@
 # @keystonejs/demo-project-meetup
 
+## 6.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`839666e2`](https://github.com/keystonejs/keystone/commit/839666e25d8bffefd034e6344e11d72dd43b925b)]:
+  - @keystonejs/keystone@10.0.0
+  - @keystonejs/fields@11.0.1
+  - @keystonejs/adapter-mongoose@8.1.2
+
 ## 6.0.0
 
 ### Major Changes
